@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+<title>HW2</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+
+<body bgcolor="#D4FFFF">
+
+<style type="text/css">
+
+table, th, td {
+    border: 1px solid black;height: 50px;}
+
+#header{
+  background:#66CCCC; 
+  color:#FFFFFF; 
+  border-top:2px solid #336699; 
+  border-bottom:2px solid #336699; 
+  width:100%; 
+}
+#sidebar{
+    width:199px;
+    height:100%;
+    border:1px #666 dashed;
+    margin-left:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+    float:left;
+}
+#sidebody{
+    width:84%;
+    height:100%;
+    border:1px #666 dashed;
+    margin-left:5px;
+    margin-top:5px;
+    margin-bottom:5px;
+    float:left;
+}
+#clear{
+    clear:both;
+}
+
+#button {
+	font-size:16px;
+	font-weight:bolder;
+}
+#button li a:hover{
+	color: #919191;
+}
+</style>
+
+    <div id="header" style="text-align:center;">
+		<h1>網際網路系統設計作業</h1><h4>4104029039 資管二 林宜融</h4>
+	</div>
+	
+    <div id="sidebar">
+	
+	<ul id="button">
+		<li><a href = "HW1.html">第一次作業</a></li>
+		<br><br>
+		<li><a href = "0307practice.html">03/07練習<br>(表格表單)</a></li>
+		<br><br>
+		<li><a href = "HW2.html">第二次作業</a></li>
+		<br><br>
+		<li><a href = "0321practice.html">03/21練習<br>(姓名生日動態表格)</a></li>
+		<br><br>
+		<li><a href = "HW3.html">第三次作業</a></li>
+		<br><br>
+	</ul>
+	
+	</div>
+    <div id="sidebody">
+	
+	<body>
+    <form name="form1" align="center">
+        姓名：<br>
+        <input type="text" id ="username" name="username" placeholder="請輸入姓名" />
+        <br><br>
+        生日：<br>
+        <input type="text" name="birthday" placeholder="年年年年/月月/日日" />
+        <br><br>
+		性別：
+        <input type="radio" name="sex" value="男"> 男
+        <input type="radio" name="sex" value="女"> 女
+        <br><br>
+		興趣(可複選)：
+        <input type="checkbox" name="hobby" value="音樂">音樂
+        <input type="checkbox" name="hobby" value="運動">運動
+        <input type="checkbox" name="hobby" value="閱讀">閱讀
+        <br><br>
+        自傳：<br>
+		<textarea name="note" cols="50" rows="10"placeholder="至少100字..."></textarea>
+        <br><br>
+        <input type="button" value="送出" onclick="send()"/>
+		<input type="reset" value="重新輸入">
+
+        <br><br>
+
+	
+    </form>
+    <p id="output" align="center">顯示結果</p>
+    <table align="center">
+     <tr>
+       <th>姓名</th>
+       <th>生日</th>
+       <th>性別</th>
+       <th>興趣</th>
+       <th>自傳</th>
+     </tr>
+     <tr>
+       <td id="l"></td>
+       <td id="m"></td>
+       <td id="n"></td>
+       <td id="o"></td>
+       <td id="p"></td>
+     </tr>
+   </table>
+   
+	
+	</div>
+    <div id="clear"></div>
+ 
+<script type="text/javascript">
+	
+	
+      function send(){
+        
+        var l = document.getElementById("l");
+        var m = document.getElementById("m");
+        var n = document.getElementById("n");
+        var o = document.getElementById("o");
+        var p = document.getElementById("p");
+        var username =  document.getElementById("username").value;
+        var birth = document.form1.birthday.value;
+        var sex = document.form1.sex.value;
+        var hobby = document.form1.hobby[0].value;
+        var hobby1 = document.form1.hobby[1].value;
+        var hobby2 = document.form1.hobby[2].value;
+        var note = document.form1.note.value;
+        if(Boolean(document.form1.hobby[0].checked)==true){var a=hobby}
+        else {var a = ""}
+        if(Boolean(document.form1.hobby[1].checked)==true){var b=hobby1}
+        else {var b = ""}
+        if(Boolean(document.form1.hobby[2].checked)==true){var c=hobby2}
+        else {var c = ""}
+		
+		alert("姓名 : " + username  +
+                           "\n生日 : " + birth +
+                           "\n性別 : " + sex +
+                           "\n興趣 : " + a + "   " + b + "   "+ c +
+                           "\n自傳 : " + note + "\n");
+      
+      l.innerHTML = username;
+      m.innerHTML = birth;
+      n.innerHTML = sex;
+      o.innerHTML = a + "\n" + b + "\n"+ c;
+      p.innerHTML = note;
+    }
+    </script>
+</body>
+</html>
